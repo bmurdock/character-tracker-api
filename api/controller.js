@@ -1,3 +1,8 @@
+function handleError(res, err)
+{
+    console.log('Got an error: ', err);
+    return res.status(400).send({err});
+}
 module.exports = function(Model)
 {
     return {

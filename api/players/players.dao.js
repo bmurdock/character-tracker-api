@@ -9,7 +9,11 @@ schema.statics = {
     },
     get: function(query, callback)
     {
-        this.find(query, callback);
+        return this.find(query, callback);
+    },
+    getPopulate: function(query, callback)
+    {
+        this.find(query).populate('friends').exec(callback);
     },
     update: function(query, data, callback)
     {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-
-const playerSchema = new mongoose.Schema({
+const playerSchema = new Schema({
     username: {
         type: String,
         unique: true,
@@ -15,7 +15,7 @@ const playerSchema = new mongoose.Schema({
     displayName: {
         type: String,
         unique: true,
-        required: false,
+        required: true,
     },
     aboutMe: {
         type: String,
@@ -25,8 +25,16 @@ const playerSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        required: false,
-    }
+        required: true,
+    },
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            unique: false,
+            required: false,
+            ref: "Players",
+        }
+    ],
 }, {
     timestamps: true
 });
