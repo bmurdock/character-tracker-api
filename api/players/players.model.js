@@ -39,4 +39,5 @@ const playerSchema = new Schema({
     timestamps: true
 });
 
+
 module.exports = playerSchema;
