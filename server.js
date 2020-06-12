@@ -33,6 +33,14 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
+const requestLogger = (req, res, next) =>
+{
+        const now = new Date();
+        console.log(`${now}:::> Incoming request to ${req.originalUrl}`)
+        next();
+}
+server.use(requestLogger);
+
 // tell the database to actually connect...
 db();
 
